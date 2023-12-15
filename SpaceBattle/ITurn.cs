@@ -5,7 +5,6 @@ namespace ShipNamespace
     public interface ITurn
     {
         Turn Angle {  get; set; }
-        Turn AngleSpeed { get;}
-        bool isCantTurn { get; }
+        Turn AngleSpeed { get;}     
     }
 }
