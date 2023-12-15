@@ -32,9 +32,6 @@ jobs:
       - name: Build
         run: dotnet build SpaceBattle/ --no-restore /p:ContinuousIntegrationBuild=true
 
-      - name: Format
-        run: cd SpaceBattle && dotnet format ./spacebattle.sln && cd ..
-
       - name: Verify format
         run: cd SpaceBattle && dotnet format --verify-no-changes && cd ..
 
