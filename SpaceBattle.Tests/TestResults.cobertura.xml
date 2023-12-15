@@ -1,192 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="1" branch-rate="1" version="1.9" timestamp="1699978522" lines-covered="67" lines-valid="67" branches-covered="18" branches-valid="18">
+<coverage line-rate="1" branch-rate="1" version="1.9" timestamp="1702644472" lines-covered="35" lines-valid="35" branches-covered="14" branches-valid="14">
   <sources>
-    <source>D:\C#\oaipLaba1\oaipLaba1\SpaceBattle\</source>
+    <source>C:\Users\Admin\lab1_oaip\oaipLaba1\SpaceBattle\</source>
   </sources>
   <packages>
-    <package name="SpaceBattle" line-rate="1" branch-rate="1" complexity="30">
+    <package name="SpaceBattle" line-rate="1" branch-rate="1" complexity="21">
       <classes>
-        <class name="ShipNamespace.MoveCommand" filename="MoveComand.cs" line-rate="1" branch-rate="1" complexity="3">
+        <class name="ShipNamespace.MoveCommand" filename="MoveComand.cs" line-rate="1" branch-rate="1" complexity="2">
           <methods>
-            <method name="Execute" signature="()" line-rate="1" branch-rate="1" complexity="2">
+            <method name="Execute" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
+                <line number="14" hits="4" branch="False" />
                 <line number="16" hits="4" branch="False" />
-                <line number="17" hits="4" branch="True" condition-coverage="100% (2/2)">
-                  <conditions>
-                    <condition number="14" type="jump" coverage="100%" />
-                  </conditions>
-                </line>
                 <line number="18" hits="1" branch="False" />
-                <line number="20" hits="3" branch="False" />
-                <line number="22" hits="1" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="(ShipNamespace.IMovable)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="10" hits="4" branch="False" />
-                <line number="11" hits="4" branch="False" />
-                <line number="12" hits="4" branch="False" />
-                <line number="13" hits="4" branch="False" />
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="16" hits="4" branch="False" />
-            <line number="17" hits="4" branch="True" condition-coverage="100% (2/2)">
-              <conditions>
-                <condition number="14" type="jump" coverage="100%" />
-              </conditions>
-            </line>
-            <line number="18" hits="1" branch="False" />
-            <line number="20" hits="3" branch="False" />
-            <line number="22" hits="1" branch="False" />
-            <line number="10" hits="4" branch="False" />
-            <line number="11" hits="4" branch="False" />
-            <line number="12" hits="4" branch="False" />
-            <line number="13" hits="4" branch="False" />
-          </lines>
-        </class>
-        <class name="ShipNamespace.Turn" filename="Turn.cs" line-rate="1" branch-rate="1" complexity="9">
-          <methods>
-            <method name="get_angle" signature="()" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="5" hits="21" branch="False" />
-              </lines>
-            </method>
-            <method name="isNull" signature="(ShipNamespace.Turn,ShipNamespace.Turn)" line-rate="1" branch-rate="1" complexity="4">
-              <lines>
-                <line number="18" hits="3" branch="False" />
-                <line number="19" hits="3" branch="True" condition-coverage="100% (4/4)">
-                  <conditions>
-                    <condition number="15" type="jump" coverage="100%" />
-                    <condition number="39" type="jump" coverage="100%" />
-                  </conditions>
-                </line>
-                <line number="20" hits="2" branch="False" />
-                <line number="22" hits="1" branch="False" />
-                <line number="23" hits="1" branch="False" />
-              </lines>
-            </method>
-            <method name="op_Addition" signature="(ShipNamespace.Turn,ShipNamespace.Turn)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="27" hits="3" branch="False" />
-                <line number="28" hits="3" branch="False" />
-                <line number="30" hits="1" branch="False" />
-                <line number="32" hits="1" branch="False" />
-                <line number="34" hits="1" branch="False" />
-                <line number="35" hits="1" branch="False" />
-              </lines>
-            </method>
-            <method name="Equals" signature="(System.Object)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="38" hits="2" branch="False" />
-                <line number="39" hits="2" branch="False" />
-                <line number="40" hits="2" branch="False" />
-                <line number="41" hits="2" branch="False" />
-              </lines>
-            </method>
-            <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="7" hits="2" branch="False" />
-                <line number="8" hits="2" branch="False" />
-                <line number="9" hits="2" branch="False" />
-                <line number="10" hits="2" branch="False" />
-              </lines>
-            </method>
-            <method name=".ctor" signature="(System.Single)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
-                <line number="12" hits="8" branch="False" />
-                <line number="13" hits="8" branch="False" />
-                <line number="14" hits="8" branch="False" />
-                <line number="15" hits="8" branch="False" />
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="5" hits="21" branch="False" />
-            <line number="18" hits="3" branch="False" />
-            <line number="19" hits="3" branch="True" condition-coverage="100% (4/4)">
-              <conditions>
-                <condition number="15" type="jump" coverage="100%" />
-                <condition number="39" type="jump" coverage="100%" />
-              </conditions>
-            </line>
-            <line number="20" hits="2" branch="False" />
-            <line number="22" hits="1" branch="False" />
-            <line number="23" hits="1" branch="False" />
-            <line number="27" hits="3" branch="False" />
-            <line number="28" hits="3" branch="False" />
-            <line number="30" hits="1" branch="False" />
-            <line number="32" hits="1" branch="False" />
-            <line number="34" hits="1" branch="False" />
-            <line number="35" hits="1" branch="False" />
-            <line number="38" hits="2" branch="False" />
-            <line number="39" hits="2" branch="False" />
-            <line number="40" hits="2" branch="False" />
-            <line number="41" hits="2" branch="False" />
-            <line number="7" hits="2" branch="False" />
-            <line number="8" hits="2" branch="False" />
-            <line number="9" hits="2" branch="False" />
-            <line number="10" hits="2" branch="False" />
-            <line number="12" hits="8" branch="False" />
-            <line number="13" hits="8" branch="False" />
-            <line number="14" hits="8" branch="False" />
-            <line number="15" hits="8" branch="False" />
-          </lines>
-        </class>
-        <class name="ShipNamespace.TurnComand" filename="TurnComand.cs" line-rate="1" branch-rate="1" complexity="3">
-          <methods>
-            <method name="Execute" signature="()" line-rate="1" branch-rate="1" complexity="2">
-              <lines>
-                <line number="15" hits="4" branch="False" />
-                <line number="16" hits="4" branch="True" condition-coverage="100% (2/2)">
-                  <conditions>
-                    <condition number="14" type="jump" coverage="100%" />
-                  </conditions>
-                </line>
-                <line number="17" hits="1" branch="False" />
-                <line number="19" hits="3" branch="False" />
-                <line number="20" hits="1" branch="False" />
-              </lines>
-            </method>
-            <method name=".ctor" signature="(ShipNamespace.ITurn)" line-rate="1" branch-rate="1" complexity="1">
-              <lines>
+                <line number="8" hits="4" branch="False" />
                 <line number="9" hits="4" branch="False" />
                 <line number="10" hits="4" branch="False" />
                 <line number="11" hits="4" branch="False" />
-                <line number="12" hits="4" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="15" hits="4" branch="False" />
-            <line number="16" hits="4" branch="True" condition-coverage="100% (2/2)">
-              <conditions>
-                <condition number="14" type="jump" coverage="100%" />
-              </conditions>
-            </line>
-            <line number="17" hits="1" branch="False" />
-            <line number="19" hits="3" branch="False" />
-            <line number="20" hits="1" branch="False" />
+            <line number="14" hits="4" branch="False" />
+            <line number="16" hits="4" branch="False" />
+            <line number="18" hits="1" branch="False" />
+            <line number="8" hits="4" branch="False" />
             <line number="9" hits="4" branch="False" />
             <line number="10" hits="4" branch="False" />
             <line number="11" hits="4" branch="False" />
-            <line number="12" hits="4" branch="False" />
           </lines>
         </class>
-        <class name="ShipNamespace.Vector2d" filename="Vector2d.cs" line-rate="1" branch-rate="1" complexity="15">
+        <class name="ShipNamespace.Vector2d" filename="Vector2d.cs" line-rate="1" branch-rate="1" complexity="19">
           <methods>
             <method name="get_X" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="6" hits="21" branch="False" />
+                <line number="6" hits="42" branch="False" />
               </lines>
             </method>
             <method name="get_Y" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="7" hits="17" branch="False" />
+                <line number="7" hits="36" branch="False" />
               </lines>
             </method>
-            <method name="isNull" signature="(ShipNamespace.Vector2d,ShipNamespace.Vector2d)" line-rate="1" branch-rate="1" complexity="8">
+            <method name="op_Addition" signature="(ShipNamespace.Vector2d,ShipNamespace.Vector2d)" line-rate="1" branch-rate="1" complexity="8">
               <lines>
                 <line number="22" hits="3" branch="False" />
                 <line number="23" hits="3" branch="True" condition-coverage="100% (8/8)">
@@ -198,28 +58,36 @@
                   </conditions>
                 </line>
                 <line number="24" hits="2" branch="False" />
-                <line number="26" hits="1" branch="False" />
-                <line number="27" hits="1" branch="False" />
+                <line number="25" hits="2" branch="False" />
+                <line number="28" hits="1" branch="False" />
+                <line number="29" hits="1" branch="False" />
               </lines>
             </method>
-            <method name="op_Addition" signature="(ShipNamespace.Vector2d,ShipNamespace.Vector2d)" line-rate="1" branch-rate="1" complexity="1">
+            <method name="Equals" signature="(System.Object)" line-rate="1" branch-rate="1" complexity="6">
               <lines>
-                <line number="30" hits="3" branch="False" />
-                <line number="31" hits="3" branch="False" />
-                <line number="33" hits="1" branch="False" />
-                <line number="34" hits="1" branch="False" />
-              </lines>
-            </method>
-            <method name="Equals" signature="(System.Object)" line-rate="1" branch-rate="1" complexity="2">
-              <lines>
-                <line number="38" hits="2" branch="False" />
-                <line number="39" hits="2" branch="False" />
-                <line number="40" hits="2" branch="True" condition-coverage="100% (2/2)">
+                <line number="32" hits="7" branch="False" />
+                <line number="33" hits="7" branch="True" condition-coverage="100% (4/4)">
                   <conditions>
-                    <condition number="55" type="jump" coverage="100%" />
+                    <condition number="2" type="jump" coverage="100%" />
+                    <condition number="26" type="jump" coverage="100%" />
                   </conditions>
                 </line>
-                <line number="41" hits="2" branch="False" />
+                <line number="34" hits="2" branch="False" />
+                <line number="35" hits="2" branch="False" />
+                <line number="38" hits="5" branch="False" />
+                <line number="39" hits="5" branch="True" condition-coverage="100% (2/2)">
+                  <conditions>
+                    <condition number="88" type="jump" coverage="100%" />
+                  </conditions>
+                </line>
+                <line number="40" hits="7" branch="False" />
+              </lines>
+            </method>
+            <method name="GetHashCode" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="43" hits="4" branch="False" />
+                <line number="44" hits="4" branch="False" />
+                <line number="45" hits="4" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="1" branch-rate="1" complexity="1">
@@ -233,17 +101,17 @@
             </method>
             <method name=".ctor" signature="(System.Int32,System.Int32)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="15" hits="8" branch="False" />
-                <line number="16" hits="8" branch="False" />
-                <line number="17" hits="8" branch="False" />
-                <line number="18" hits="8" branch="False" />
-                <line number="19" hits="8" branch="False" />
+                <line number="15" hits="19" branch="False" />
+                <line number="16" hits="19" branch="False" />
+                <line number="17" hits="19" branch="False" />
+                <line number="18" hits="19" branch="False" />
+                <line number="19" hits="19" branch="False" />
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="6" hits="21" branch="False" />
-            <line number="7" hits="17" branch="False" />
+            <line number="6" hits="42" branch="False" />
+            <line number="7" hits="36" branch="False" />
             <line number="22" hits="3" branch="False" />
             <line number="23" hits="3" branch="True" condition-coverage="100% (8/8)">
               <conditions>
@@ -254,30 +122,38 @@
               </conditions>
             </line>
             <line number="24" hits="2" branch="False" />
-            <line number="26" hits="1" branch="False" />
-            <line number="27" hits="1" branch="False" />
-            <line number="30" hits="3" branch="False" />
-            <line number="31" hits="3" branch="False" />
-            <line number="33" hits="1" branch="False" />
-            <line number="34" hits="1" branch="False" />
-            <line number="38" hits="2" branch="False" />
-            <line number="39" hits="2" branch="False" />
-            <line number="40" hits="2" branch="True" condition-coverage="100% (2/2)">
+            <line number="25" hits="2" branch="False" />
+            <line number="28" hits="1" branch="False" />
+            <line number="29" hits="1" branch="False" />
+            <line number="32" hits="7" branch="False" />
+            <line number="33" hits="7" branch="True" condition-coverage="100% (4/4)">
               <conditions>
-                <condition number="55" type="jump" coverage="100%" />
+                <condition number="2" type="jump" coverage="100%" />
+                <condition number="26" type="jump" coverage="100%" />
               </conditions>
             </line>
-            <line number="41" hits="2" branch="False" />
+            <line number="34" hits="2" branch="False" />
+            <line number="35" hits="2" branch="False" />
+            <line number="38" hits="5" branch="False" />
+            <line number="39" hits="5" branch="True" condition-coverage="100% (2/2)">
+              <conditions>
+                <condition number="88" type="jump" coverage="100%" />
+              </conditions>
+            </line>
+            <line number="40" hits="7" branch="False" />
+            <line number="43" hits="4" branch="False" />
+            <line number="44" hits="4" branch="False" />
+            <line number="45" hits="4" branch="False" />
             <line number="9" hits="2" branch="False" />
             <line number="10" hits="2" branch="False" />
             <line number="11" hits="2" branch="False" />
             <line number="12" hits="2" branch="False" />
             <line number="13" hits="2" branch="False" />
-            <line number="15" hits="8" branch="False" />
-            <line number="16" hits="8" branch="False" />
-            <line number="17" hits="8" branch="False" />
-            <line number="18" hits="8" branch="False" />
-            <line number="19" hits="8" branch="False" />
+            <line number="15" hits="19" branch="False" />
+            <line number="16" hits="19" branch="False" />
+            <line number="17" hits="19" branch="False" />
+            <line number="18" hits="19" branch="False" />
+            <line number="19" hits="19" branch="False" />
           </lines>
         </class>
       </classes>

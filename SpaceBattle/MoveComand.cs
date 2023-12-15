@@ -1,25 +1,20 @@
-using System.Reflection.Metadata.Ecma335;
-
-namespace ShipNamespace
+﻿namespace ShipNamespace
 {
 
-	public class MoveCommand : IComand
-	{
-		private IMovable movable;
+    public class MoveCommand : IComand
+    {
+        private readonly IMovable movable;
 
-		public MoveCommand(IMovable movable)
-		{
-			this.movable = movable;
-		}
+        public MoveCommand(IMovable movable)
+        {
+            this.movable = movable;
+        }
 
-		public void Execute()
-		{
-			if(movable.isCantMoving)
-				throw new Exception("SpaceShip can't moving");
+        public void Execute()
+        {
 
-			movable.Position = movable.Position + movable.Velocity;
-			
-		}
-		
-	}
+            movable.Position = movable.Position + movable.Velocity;
+
+        }
+    }
 }

@@ -1,25 +1,18 @@
-using ShipNamespace;
-using System;
+﻿using ShipNamespace;
 using TechTalk.SpecFlow;
-using Moq;
-using FluentAssertions;
 
 namespace spacebattletests.StepDefinitions
 {
     [Binding]
     public class StepDefinitions
     {
-       
-private MoveCommand moveCommand;
-        Exception exception = new Exception();
-
-        Mock<IMovable> movableMock = new Mock<IMovable>();
-
+        private Exception exception = new Exception();
+        private readonly Mock<IMovable> movableMock = new Mock<IMovable>();
 
         [Given(@"космический корабль находится в точке пространства с координатами \((.*), (.*)\)")]
         public void GivenCoordinates(int x, int y)
         {
-           movableMock.SetupProperty(m => m.Position);
+            movableMock.SetupProperty(m => m.Position);
             movableMock.Object.Position = new Vector2d(x, y);
         }
 
@@ -32,7 +25,7 @@ private MoveCommand moveCommand;
         [Given(@"космический корабль, положение в пространстве которого невозможно определить")]
         public void GivenImpossibleCoordinates()
         {
-           movableMock.Setup(m => m.Position).Returns(new Vector2d());
+            movableMock.Setup(m => m.Position).Returns(new Vector2d());
         }
 
         [Given(@"скорость корабля определить невозможно")]
@@ -44,25 +37,22 @@ private MoveCommand moveCommand;
         [Given(@"изменить положение в пространстве космического корабля невозможно")]
         public void GivenImpossibleAction()
         {
-            movableMock.Setup(m => m.isCantMoving).Returns(true);
+            movableMock.Setup(m => m.Position).Throws<Exception>();
         }
-
-
 
         [When(@"происходит прямолинейное равномерное движение без деформации")]
         public void WhenMovingAction()
         {
             try
             {
-                moveCommand = new MoveCommand(movableMock.Object);
+                var moveCommand = new MoveCommand(movableMock.Object);
                 moveCommand.Execute();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                 exception = ex;
+                exception = ex;
             }
         }
-
 
         [Then(@"космический корабль перемещается в точку пространства с координатами \((.*), (.*)\)")]
         public void ThenSpaceshipMovingToCoordinates(int p0, int p1)
@@ -77,4 +67,3 @@ private MoveCommand moveCommand;
         }
     }
 }
-    
