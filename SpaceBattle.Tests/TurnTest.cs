@@ -9,11 +9,8 @@ namespace spacebattletests.StepDefinitions
     [Binding]
     public class StepDefinitions
     {
-        private TurnComand turnComand;
         Exception exception = new Exception();
-
         Mock<ITurn> turnableMock = new Mock<ITurn>();
-
 
         [Given(@"космический корабль, угол наклона которого невозможно определить")]
         public void GivenImpossibleAngle()
@@ -28,10 +25,10 @@ namespace spacebattletests.StepDefinitions
         }
 
         [Given(@"невозможно изменить угол наклона к оси OX космического корабля")]
-         public void GivenImpossibleAngleAction()
-         {
-             turnableMock.Setup(m => m.isCantTurn).Returns(true);
-         }
+        public void GivenImpossibleAngleAction()
+        {
+            turnableMock.Setup(m => m.Angle).Throws<Exception>();
+        }
 
         [Given(@"космический корабль имеет угол наклона (.*) град к оси OX")]
         public void GivenAngle(int angle)
@@ -51,19 +48,19 @@ namespace spacebattletests.StepDefinitions
         {
             try
             {
-                turnComand = new TurnComand(turnableMock.Object);
+                var turnComand = new TurnComand(turnableMock.Object);
                 turnComand.Execute();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                 exception = ex;
+                exception = ex;
             }
         }
 
-         [Then(@"угол наклона космического корабля к оси OX составляет (.*) град")]
+        [Then(@"угол наклона космического корабля к оси OX составляет (.*) град")]
         public void ThenSpaceshipNowThisAngle(int angle)
         {
-             turnableMock.VerifySet(m => m.Angle = new Turn(angle), Times.Once);
+            turnableMock.VerifySet(m => m.Angle = new Turn(angle), Times.Once);
         }
 
         [Then(@"возникает ошибка Exception")]
@@ -74,4 +71,3 @@ namespace spacebattletests.StepDefinitions
 
     }
 }
-    
