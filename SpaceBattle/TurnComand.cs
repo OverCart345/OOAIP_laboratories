@@ -1,10 +1,8 @@
-using ShipNamespace;
-
-namespace ShipNamespace
+﻿namespace ShipNamespace
 {
     public class TurnComand : IComand
     {
-        private ITurn turn;
+        private readonly ITurn turn;
 
         public TurnComand(ITurn turn)
         {

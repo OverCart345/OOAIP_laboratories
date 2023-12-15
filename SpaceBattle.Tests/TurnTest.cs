@@ -1,16 +1,13 @@
-using ShipNamespace;
-using System;
+﻿using ShipNamespace;
 using TechTalk.SpecFlow;
-using Moq;
-using FluentAssertions;
 
 namespace spacebattletests.StepDefinitions
 {
     [Binding]
     public class StepDefinitions
     {
-        Exception exception = new Exception();
-        Mock<ITurn> turnableMock = new Mock<ITurn>();
+        private Exception exception = new Exception();
+        private readonly Mock<ITurn> turnableMock = new Mock<ITurn>();
 
         [Given(@"космический корабль, угол наклона которого невозможно определить")]
         public void GivenImpossibleAngle()
@@ -68,6 +65,5 @@ namespace spacebattletests.StepDefinitions
         {
             Assert.IsType<Exception>(exception);
         }
-
     }
 }

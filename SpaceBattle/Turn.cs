@@ -1,4 +1,4 @@
-namespace ShipNamespace
+﻿namespace ShipNamespace
 {
     public class Turn
     {
@@ -17,9 +17,11 @@ namespace ShipNamespace
         public static Turn operator +(Turn t1, Turn t2)
         {
             if (t1.angle == null || t2.angle == null)
+            {
                 throw new Exception("angle was null");
+            }
 
-            float newAngle = t1.angle.Value + t2.angle.Value;
+            var newAngle = t1.angle.Value + t2.angle.Value;
 
             newAngle = (newAngle % 360 + 360) % 360;
 
@@ -29,9 +31,11 @@ namespace ShipNamespace
         public override bool Equals(object? obj)
         {
             if (obj == null || GetType() != obj.GetType())
+            {
                 return false;
+            }
 
-            Turn otherTurn = (Turn)obj;
+            var otherTurn = (Turn)obj;
             return angle == otherTurn.angle;
         }
 
@@ -39,6 +43,5 @@ namespace ShipNamespace
         {
             return angle.GetHashCode();
         }
-
     }
 }

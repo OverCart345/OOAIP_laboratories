@@ -1,9 +1,8 @@
-using ShipNamespace;
-using Xunit;
+﻿using ShipNamespace;
 
 namespace SpaceBattle.Tests
 {
-    
+
     public class EqualsTests
     {
         [Fact]

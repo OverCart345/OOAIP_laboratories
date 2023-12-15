@@ -1,4 +1,4 @@
-namespace SpaceBattle.Tests
+﻿namespace SpaceBattle.Tests
 {
     using ShipNamespace;
     using Xunit;
@@ -28,7 +28,7 @@ namespace SpaceBattle.Tests
 
             Assert.NotEqual(hashCode1, hashCode2);
         }
-         [Fact]
+        [Fact]
         public void GetHashCode_Null_Angle()
         {
             var turn1 = new Turn(45);
