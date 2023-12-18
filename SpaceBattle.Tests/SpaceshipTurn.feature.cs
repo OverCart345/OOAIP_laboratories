@@ -28,7 +28,7 @@ namespace SpaceBattle.Tests
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "Spaceship.feature"
+#line 1 "SpaceshipTurn.feature"
 #line hidden
         
         public TurnActionFeature(TurnActionFeature.FixtureData fixtureData, SpaceBattle_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
