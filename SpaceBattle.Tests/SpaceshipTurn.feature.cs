@@ -247,4 +247,3 @@ testRunner.Then("возникает ошибка Exception", ((string)(null)), (
 }
 #pragma warning restore
 #endregion
-
