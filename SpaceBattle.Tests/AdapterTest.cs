@@ -26,5 +26,45 @@ namespace SpaceBattle.Tests
             adapter.Position = newPosition;
             Assert.Equal(newPosition, mockProperties["Position"]);
         }
+
+        [Fact]
+        public void Inject_UpdatesInternalCommand()
+        {
+            // Arrange
+            var mockCommand1 = new Mock<IComand>();
+            var mockCommand2 = new Mock<IComand>();
+            var injectCommand = new InjectCommand(mockCommand1.Object);
+
+            // Act
+            injectCommand.Inject(mockCommand2.Object);
+
+            // Assert
+            Assert.Equal(mockCommand2.Object, injectCommand.InternalCommand);
+        }
+        [Fact]
+        public void Execute_InvokesExecuteOfInternalCommand()
+        {
+            // Arrange
+            var mockCommand = new Mock<IComand>();
+            var injectCommand = new InjectCommand(mockCommand.Object);
+
+            // Act
+            injectCommand.Execute();
+
+            // Assert
+            mockCommand.Verify(m => m.Execute(), Times.Once());
+        }
+        [Fact]
+        public void Constructor_SetsInternalCommand()
+        {
+            // Arrange
+            var mockCommand = new Mock<IComand>();
+
+            // Act
+            var injectCommand = new InjectCommand(mockCommand.Object);
+
+            // Assert
+            Assert.Equal(mockCommand.Object, injectCommand.InternalCommand);
+        }
     }
 }
