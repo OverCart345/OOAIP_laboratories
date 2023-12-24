@@ -1,18 +1,16 @@
-﻿namespace ShipNamespace
+﻿using Hwdtech;
+
+namespace ShipNamespace
 {
     public class StopMoveCommand : IComand
     {
 
         public void Execute()
         {
-
-            foreach (var command in IoC.Resolve<Queue<IComand>>("Game.Queue"))
+            foreach (InjectCommand command in IoC.Resolve<Queue<IComand>>("Queue"))
             {
-                if (command is InjectCommand moveCommand)
-                {
-                    moveCommand.Inject(new EmptyCommand());
-                    break;
-                }
+                command.Inject(new EmptyCommand());
+                break;
             }
         }
     }
