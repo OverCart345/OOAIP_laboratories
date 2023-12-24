@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ShipNamespace
+﻿namespace ShipNamespace
 {
     public class InjectCommand : IComand
     {
@@ -11,8 +6,8 @@ namespace ShipNamespace
 
         public IComand InternalCommand
         {
-            get { return internalCommand; }
-            private set { internalCommand = value; }
+            get => internalCommand;
+            private set => internalCommand = value;
         }
 
         public InjectCommand(IComand internalCommand)

@@ -1,8 +1,7 @@
-using Hwdtech;
+﻿using Hwdtech;
 
 namespace ShipNamespace
 {
-
     public class StartCommand : IComand
     {
         private readonly Order order;
@@ -16,7 +15,6 @@ namespace ShipNamespace
         {
             order.Target.properties["Velocity"] = order.Velocity;
             var movable = new MovableAdapter(order.Target);
-
 
             var moveCommand = new InjectCommand(new MoveCommand(movable));
             IoC.Resolve<Queue<IComand>>("Queue").Enqueue(moveCommand);
