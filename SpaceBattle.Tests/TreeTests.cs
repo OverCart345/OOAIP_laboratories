@@ -23,7 +23,7 @@ public class TreeTests
     public void SuccessfulBuildSolutionTree()
     {
 
-        var buildCommand = new Tree(@"../../../vector_tree_test.txt");
+        var buildCommand = new Tree(@"../../../signs_tree_test.txt");
 
         buildCommand.Execute();
 
