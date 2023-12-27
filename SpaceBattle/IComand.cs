@@ -1,6 +1,6 @@
 ﻿namespace ShipNamespace
 {
-    public interface IComand
+    public interface ICommand
     {
         public void Execute();
     }
