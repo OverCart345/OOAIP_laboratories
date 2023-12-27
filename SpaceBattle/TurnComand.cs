@@ -1,6 +1,6 @@
 ﻿namespace ShipNamespace
 {
-    public class TurnComand : IComand
+    public class TurnComand : ICommand
     {
         private readonly ITurn turn;
 
