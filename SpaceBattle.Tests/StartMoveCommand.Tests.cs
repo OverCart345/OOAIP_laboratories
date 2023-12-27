@@ -12,9 +12,11 @@ namespace spacebattletests.StepDefinitions
         public StartMoveCommandTest()
         {
             new InitScopeBasedIoCImplementationCommand().Execute();
+            IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
 
             queueMock = new Mock<Queue<IComand>>();
             spaceship = new Mock<UniversalyObject>(new Dictionary<string, object>());
+
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Queue", (object[] args) => { return queueMock.Object; }).Execute();
 
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Spaceship", (object[] args) => spaceship.Object).Execute();
@@ -26,16 +28,20 @@ namespace spacebattletests.StepDefinitions
             spaceship.Object.properties.Add("Position", new Vector2d(0, 0));
             spaceship.Object.properties.Add("Velocity", new Vector2d(0, 0));
 
+            spaceship.Object.properties.Add("CommandQueue", new Queue<IComand>());
+
             var Order = new Mock<Order>();
 
             Order.Setup(o => o.Target).Returns(IoC.Resolve<UniversalyObject>("Spaceship"));
-            Order.Setup(o => o.Command).Returns("MoveCommand");
+
             Order.Setup(o => o.Velocity).Returns(new Vector2d(1, 1));
 
+            IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Operations.Move", (object[] args) => new OperationsMove((UniversalyObject)args[0])).Execute();
             new StartCommand(Order.Object).Execute();
 
             var command = (InjectCommand)IoC.Resolve<Queue<IComand>>("Queue").Peek();
-            Assert.IsType<MoveCommand>(command.InternalCommand);
+            command.Execute();
+            Assert.IsType<OperationsMove>(command.InternalCommand);
         }
     }
 }

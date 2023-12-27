@@ -14,9 +14,11 @@ namespace ShipNamespace
         public void Execute()
         {
             order.Target.properties["Velocity"] = order.Velocity;
-            var movable = new MovableAdapter(order.Target);
+            var moveCommand = IoC.Resolve<ShipNamespace.IComand>("Operations.Move", order.Target);
+            moveCommand = new InjectCommand(moveCommand);
 
-            var moveCommand = new InjectCommand(new MoveCommand(movable));
+            var targetQueue = (Queue<IComand>)order.Target.properties["CommandQueue"];
+            targetQueue.Enqueue(moveCommand);
             IoC.Resolve<Queue<IComand>>("Queue").Enqueue(moveCommand);
         }
     }
