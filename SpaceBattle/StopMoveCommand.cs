@@ -1,17 +1,22 @@
-﻿using Hwdtech;
-
-namespace ShipNamespace
+﻿namespace ShipNamespace
 {
     public class StopMoveCommand : IComand
     {
+        private readonly IMoveStopOrder stopOrder;
+
+        public StopMoveCommand(IMoveStopOrder stopOrder)
+        {
+            this.stopOrder = stopOrder;
+        }
 
         public void Execute()
         {
-            foreach (InjectCommand command in IoC.Resolve<Queue<IComand>>("Queue"))
-            {
-                command.Inject(new EmptyCommand());
-                break;
-            }
+            stopOrder.target.properties["Velocity"] = new Vector2d(0, 0);
+
+            var targetQueue = (Queue<IComand>)stopOrder.target.properties["CommandQueue"];
+            var commandToInject = (InjectCommand)targetQueue.Peek();
+            commandToInject.Inject(new EmptyCommand());
+
         }
     }
 }
