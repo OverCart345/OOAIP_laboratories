@@ -17,13 +17,22 @@ namespace ShipNamespace
             var objectOneProperties = objectOne.properties;
             var objectTwoProperties = objectTwo.properties;
 
-            var positionOne = (Vector2d)objectOneProperties["Position"] + (Vector2d)objectOneProperties["Velocity"];
-            var positionTwo = (Vector2d)objectTwoProperties["Position"] + (Vector2d)objectTwoProperties["Velocity"];
-
-            if (positionOne.GetHashCode() == positionTwo.GetHashCode())
+            var coords = new List<int?>
             {
-                IoC.Resolve<ICommand>("CollisionCommand", objectOne, objectTwo).Execute();
+                ((Vector2d)objectOneProperties["Position"]).X - ((Vector2d)objectTwoProperties["Position"]).X,
+                ((Vector2d)objectOneProperties["Position"]).Y - ((Vector2d)objectTwoProperties["Position"]).Y,
+                ((Vector2d)objectOneProperties["Velocity"]).X - ((Vector2d)objectTwoProperties["Velocity"]).X,
+                ((Vector2d)objectOneProperties["Velocity"]).Y - ((Vector2d)objectTwoProperties["Velocity"]).Y
+            };
+
+            var myTree = IoC.Resolve<IDictionary<int?, object>>("CollisionTree");
+
+            foreach (var i in coords)
+            {
+                myTree = (IDictionary<int?, object>)myTree[i];
             }
+
+            IoC.Resolve<ICommand>("CollisionCommand", objectOne, objectTwo).Execute();
         }
     }
 }
