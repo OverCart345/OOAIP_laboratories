@@ -56,7 +56,7 @@ namespace spacebattletests.StepDefinitions
             collisionCommand.Setup(c => c.Execute()).Verifiable();
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "CollisionCommand", (object[] args) => collisionCommand.Object).Execute();
 
-            Assert.Throws<Exception>(() =>  new CheckCollisionCommand(spaceship.Object, spaceship2.Object).Execute());
+            Assert.Throws<Exception>(() => new CheckCollisionCommand(spaceship.Object, spaceship2.Object).Execute());
 
             myTree.Verify(d => d[It.IsAny<int?>()], Times.Once());
             collisionCommand.Verify(command => command.Execute(), Times.Never());
