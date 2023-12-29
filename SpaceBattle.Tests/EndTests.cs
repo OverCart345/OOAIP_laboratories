@@ -20,12 +20,6 @@ namespace spacebattletests.StepDefinitions2
             target = new Mock<UniversalyObject>(new Dictionary<string, object>());
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "target", (object[] args) => { return target.Object; }).Execute();
 
-            //var TurnCommand = new Mock<IComand>();
-            //TurnCommand.Setup(x => x.Execute()).Verifiable();
-            //var commandToInject = new InjectCommand(TurnCommand.Object);
-
-            //IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "commandToInject", (object[] args) => { return commandToInject; }).Execute();
-
         }
 
         [Fact]
