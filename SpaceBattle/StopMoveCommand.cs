@@ -13,10 +13,8 @@
         {
             stopOrder.target.properties["Velocity"] = new Vector2d(0, 0);
 
-            var targetQueue = (Queue<IComand>)stopOrder.target.properties["CommandQueue"];
-            var commandToInject = (InjectCommand)targetQueue.Peek();
-            commandToInject.Inject(new EmptyCommand());
-
+            var command = (InjectCommand)stopOrder.target.properties["Command"];
+            command.Inject(new EmptyCommand());
         }
     }
 }

@@ -20,11 +20,11 @@ namespace spacebattletests.StepDefinitions2
             target = new Mock<UniversalyObject>(new Dictionary<string, object>());
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "target", (object[] args) => { return target.Object; }).Execute();
 
-            var TurnCommand = new Mock<IComand>();
-            TurnCommand.Setup(x => x.Execute()).Verifiable();
-            var commandToInject = new InjectCommand(TurnCommand.Object);
+            //var TurnCommand = new Mock<IComand>();
+            //TurnCommand.Setup(x => x.Execute()).Verifiable();
+            //var commandToInject = new InjectCommand(TurnCommand.Object);
 
-            IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "commandToInject", (object[] args) => { return commandToInject; }).Execute();
+            //IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "commandToInject", (object[] args) => { return commandToInject; }).Execute();
 
         }
 
@@ -34,29 +34,20 @@ namespace spacebattletests.StepDefinitions2
 
             var queue = new Queue<IComand>();
 
-            queue.Enqueue(IoC.Resolve<IComand>("commandToInject"));
+            var TurnCommand = new Mock<IComand>();
+            TurnCommand.Setup(x => x.Execute()).Verifiable();
+            var commandToInject = new InjectCommand(TurnCommand.Object);
 
             target.Object.properties.Add("Position", new Vector2d(1, 1));
             target.Object.properties.Add("Velocity", new Vector2d(2, 2));
-            target.Object.properties.Add("CommandQueue", queue);
+            target.Object.properties.Add("Command", commandToInject);
 
-            IoC.Resolve<Queue<IComand>>("Queue").Enqueue(IoC.Resolve<InjectCommand>("commandToInject"));
+            IoC.Resolve<Queue<IComand>>("Queue").Enqueue(commandToInject);
 
             var stopOrder = new Mock<IMoveStopOrder>();
             stopOrder.Setup(t => t.target).Returns(IoC.Resolve<UniversalyObject>("target"));
-            //stopOrder.Object.target = IoC.Resolve<UniversalyObject>("target");
 
             new StopMoveCommand(stopOrder.Object).Execute();
-
-            //var movableMock = new Mock<IMovable>();
-
-            //movableMock.SetupProperty(m => m.Position);
-            //movableMock.Object.Position = new Vector2d(0, 0);
-            //movableMock.SetupGet(m => m.Velocity).Returns(new Vector2d(0, 0));
-
-            //IoC.Resolve<Queue<IComand>>("Queue").Enqueue(new InjectCommand(new MoveCommand(movableMock.Object)));
-
-            //new StopMoveCommand().Execute();
 
             var command = (InjectCommand)IoC.Resolve<Queue<IComand>>("Queue").Peek();
             command.Execute();
