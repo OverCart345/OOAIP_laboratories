@@ -19,12 +19,11 @@ namespace ShipNamespace
                 order.Target.properties[property.Key] = order.properties[property.Key];
             }
 
-            var moveCommand = IoC.Resolve<IComand>("Commands");
-            var injectedMoveCommand = new InjectCommand(moveCommand);
+            var command = (IComand)order.properties["Command"];
 
-            var targetQueue = (Queue<IComand>)order.Target.properties["CommandQueue"];
-            targetQueue.Enqueue(injectedMoveCommand);
-            IoC.Resolve<Queue<IComand>>("Queue").Enqueue(moveCommand);
+            var injectedMoveCommand = new InjectCommand(command);
+
+            IoC.Resolve<Queue<IComand>>("Queue").Enqueue(injectedMoveCommand);
         }
     }
 }
