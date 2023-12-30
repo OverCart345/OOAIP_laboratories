@@ -13,13 +13,16 @@ namespace ShipNamespace
 
         public void Execute()
         {
-            order.Target.properties["Velocity"] = order.Velocity;
-            var moveCommand = IoC.Resolve<ShipNamespace.IComand>("Operations.Move", order.Target);
-            moveCommand = new InjectCommand(moveCommand);
+            foreach (var property in order.PropertiesToUpd)
+            {
+                order.Target.properties[property.Key] = order.PropertiesToUpd[property.Key];
+            }
 
-            var targetQueue = (Queue<IComand>)order.Target.properties["CommandQueue"];
-            targetQueue.Enqueue(moveCommand);
-            IoC.Resolve<Queue<IComand>>("Queue").Enqueue(moveCommand);
+            var command = (IComand)order.Target.properties["Command"];
+
+            var injectedMoveCommand = new InjectCommand(command);
+
+            IoC.Resolve<Queue<IComand>>("Queue").Enqueue(injectedMoveCommand);
         }
     }
 }

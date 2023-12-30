@@ -25,23 +25,22 @@ namespace spacebattletests.StepDefinitions
         [Fact]
         public void testingStartCommand()
         {
+            var TurnCommand = new Mock<IComand>();
+            TurnCommand.Setup(x => x.Execute()).Verifiable();
             spaceship.Object.properties.Add("Position", new Vector2d(0, 0));
             spaceship.Object.properties.Add("Velocity", new Vector2d(0, 0));
-
-            spaceship.Object.properties.Add("CommandQueue", new Queue<IComand>());
-
+            spaceship.Object.properties.Add("Command", TurnCommand.Object);
             var Order = new Mock<Order>();
 
             Order.Setup(o => o.Target).Returns(IoC.Resolve<UniversalyObject>("Spaceship"));
 
-            Order.Setup(o => o.Velocity).Returns(new Vector2d(1, 1));
-
-            IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Operations.Move", (object[] args) => new OperationsMove((UniversalyObject)args[0])).Execute();
+            Order.Setup(o => o.PropertiesToUpd).Returns(new Dictionary<string, object> {{ "Velocity", new Vector2d(3, 5) } });
+        
             new StartCommand(Order.Object).Execute();
 
             var command = (InjectCommand)IoC.Resolve<Queue<IComand>>("Queue").Peek();
             command.Execute();
-            Assert.IsType<OperationsMove>(command.InternalCommand);
+            TurnCommand.Verify(m => m.Execute(), Times.Once());
         }
     }
 }
