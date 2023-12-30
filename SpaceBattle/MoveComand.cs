@@ -1,6 +1,5 @@
 ﻿namespace ShipNamespace
 {
-
     public class MoveCommand : IComand
     {
         private readonly IMovable movable;
