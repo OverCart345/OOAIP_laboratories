@@ -2,7 +2,7 @@
 {
     public class ActionCommand : IComand
     {
-        private Action action;
+        private readonly Action action;
         public ActionCommand(Action action)
         {
             this.action = action;

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using Hwdtech;
 using Hwdtech.Ioc;
-using Moq;
-
 
 namespace ShipNamespace
 {
     public class HARDtest
     {
         private readonly ThreadManager _threadManager = new ThreadManager();
-        Exception ExceptionHandler = new Exception();
+        private Exception ExceptionHandler = new Exception();
         public HARDtest()
         {
             new InitScopeBasedIoCImplementationCommand().Execute();
@@ -18,16 +15,16 @@ namespace ShipNamespace
 
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Create And Start Thread", (object[] args) =>
             {
-                 return new ActionCommand(() =>
-                 {
-                     Action action = null;
+                return new ActionCommand(() =>
+                {
+                    Action action = null;
 
-                     if (args.Length > 2)
-                     {
-                         action = (Action)args[2];
-                     }
+                    if (args.Length > 2)
+                    {
+                        action = (Action)args[2];
+                    }
 
-                     var serverThread = new ServerThread((BlockingCollection<IComand>)args[1], action);
+                    var serverThread = new ServerThread((BlockingCollection<IComand>)args[1], action);
                     _threadManager.AddThread((Guid)args[0], serverThread);
                     serverThread.Start();
                 });
@@ -57,7 +54,6 @@ namespace ShipNamespace
                 });
             }).Execute();
 
-            
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "ExceptionHandler", (object[] args) =>
             {
                 return new ActionCommand(() =>
@@ -66,17 +62,16 @@ namespace ShipNamespace
                 });
             }).Execute();
 
-           
         }
 
         [Fact]
-        public void HardStopThread() 
+        public void HardStopThread()
         {
             var id = Guid.NewGuid();
             var mre = new ManualResetEvent(false);
             var queue = new BlockingCollection<IComand>(100);
             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
-            
+
             IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
 
             var hs = IoC.Resolve<IComand>("Hard Stop The Thread", id, new Action(() => { mre.Set(); }));
@@ -100,9 +95,9 @@ namespace ShipNamespace
             var queue2 = new BlockingCollection<IComand>(100);
             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
 
-            IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => 
+            IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() =>
             { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
-            IoC.Resolve<IComand>("Create And Start Thread", id2, queue2, new Action(() => 
+            IoC.Resolve<IComand>("Create And Start Thread", id2, queue2, new Action(() =>
             { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
 
             var hardStop = IoC.Resolve<IComand>("Hard Stop The Thread", id, new Action(() => { mre.Set(); }));

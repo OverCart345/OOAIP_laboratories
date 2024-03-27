@@ -1,20 +1,21 @@
+﻿using System.Collections.Concurrent;
 using Hwdtech;
-using System.Collections.Concurrent;
 
 namespace ShipNamespace
 {
     public class ServerThread
     {
         private Action _behaviour;
-        private BlockingCollection<IComand> _queue;
-        private Thread _thread;
+        private readonly BlockingCollection<IComand> _queue;
+        private readonly Thread _thread;
         private bool _stop = false;
 
         public ServerThread(BlockingCollection<IComand> queue, Action afterThreadStart = null)
         {
             _queue = queue;
 
-            _behaviour = () => {
+            _behaviour = () =>
+            {
                 var cmd = _queue.Take();
                 try
                 {
@@ -26,7 +27,8 @@ namespace ShipNamespace
                 }
             };
 
-            _thread = new Thread(() => {
+            _thread = new Thread(() =>
+            {
 
                 afterThreadStart();
 
@@ -51,10 +53,10 @@ namespace ShipNamespace
             _thread.Join();
         }
 
-        public Thread GetThread() 
+        public Thread GetThread()
         {
             return _thread;
-        } 
+        }
 
         internal void SetBehaviour(Action newBehaviour)
         {

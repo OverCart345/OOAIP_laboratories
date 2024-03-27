@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using Hwdtech;
 using Hwdtech.Ioc;
-using Moq;
-
 
 namespace ShipNamespace
 {
     public class ThreadManagerTests
     {
         private readonly ThreadManager _threadManager = new ThreadManager();
-        Exception ExceptionHandler = new Exception();
+        private Exception ExceptionHandler = new Exception();
         public ThreadManagerTests()
         {
             new InitScopeBasedIoCImplementationCommand().Execute();
@@ -56,7 +53,6 @@ namespace ShipNamespace
                     new HardStopCommand(thread, action).Execute();
                 });
             }).Execute();
-
 
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "ExceptionHandler", (object[] args) =>
             {

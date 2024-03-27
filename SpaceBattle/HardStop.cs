@@ -2,8 +2,8 @@
 
 public class HardStopCommand : IComand
 {
-    private ServerThread _t;
-    private Action _onStoppedAction;
+    private readonly ServerThread _t;
+    private readonly Action _onStoppedAction;
 
     public HardStopCommand(ServerThread t, Action onStoppedAction = null)
     {
@@ -13,8 +13,10 @@ public class HardStopCommand : IComand
 
     public void Execute()
     {
-        if(_t.GetThread() != Thread.CurrentThread)
+        if (_t.GetThread() != Thread.CurrentThread)
+        {
             throw new Exception("incorrect thread");
+        }
 
         _t.SetBehaviour(() =>
         {
