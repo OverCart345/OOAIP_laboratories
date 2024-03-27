@@ -1,0 +1,618 @@
+{
+  "SpaceBattle.dll": {
+    "D:\\C#\\HARDsoft\\SpaceBattle\\HardStop.cs": {
+      "HardStopCommand": {
+        "System.Void HardStopCommand::Execute()": {
+          "Lines": {
+            "15": 5,
+            "16": 5,
+            "17": 2,
+            "19": 3,
+            "20": 3,
+            "21": 3,
+            "22": 3,
+            "23": 6,
+            "24": 3
+          },
+          "Branches": [
+            {
+              "Line": 16,
+              "Offset": 24,
+              "EndOffset": 26,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 16,
+              "Offset": 24,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        },
+        "System.Void HardStopCommand::.ctor(ShipNamespace.ServerThread,System.Action)": {
+          "Lines": {
+            "8": 5,
+            "9": 5,
+            "10": 5,
+            "11": 5,
+            "12": 5
+          },
+          "Branches": []
+        },
+        "System.Void HardStopCommand::<Execute>b__3_0()": {
+          "Lines": {},
+          "Branches": [
+            {
+              "Line": 22,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 20,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\ActionComand.cs": {
+      "ShipNamespace.ActionCommand": {
+        "System.Void ShipNamespace.ActionCommand::Execute()": {
+          "Lines": {
+            "12": 18,
+            "13": 18,
+            "14": 16
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.ActionCommand::.ctor(System.Action)": {
+          "Lines": {
+            "6": 17,
+            "7": 17,
+            "8": 17,
+            "9": 17
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\CheckCollisionCommand.cs": {
+      "ShipNamespace.CheckCollisionCommand": {
+        "System.Void ShipNamespace.CheckCollisionCommand::Execute()": {
+          "Lines": {
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2,
+            "24": 2,
+            "25": 2,
+            "26": 2,
+            "28": 2,
+            "30": 15,
+            "31": 5,
+            "32": 5,
+            "33": 4,
+            "35": 1,
+            "36": 1
+          },
+          "Branches": [
+            {
+              "Line": 20,
+              "Offset": 92,
+              "EndOffset": 94,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 92,
+              "EndOffset": 106,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 194,
+              "EndOffset": 196,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 194,
+              "EndOffset": 208,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 296,
+              "EndOffset": 298,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 296,
+              "EndOffset": 310,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 398,
+              "EndOffset": 400,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            },
+            {
+              "Line": 20,
+              "Offset": 398,
+              "EndOffset": 412,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 1
+            },
+            {
+              "Line": 30,
+              "Offset": 498,
+              "EndOffset": 466,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 5
+            },
+            {
+              "Line": 30,
+              "Offset": 498,
+              "EndOffset": 500,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void ShipNamespace.CheckCollisionCommand::.ctor(ShipNamespace.UniversalyObject,ShipNamespace.UniversalyObject)": {
+          "Lines": {
+            "9": 2,
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\MoveComand.cs": {
+      "ShipNamespace.MoveCommand": {
+        "System.Void ShipNamespace.MoveCommand::Execute()": {
+          "Lines": {
+            "14": 4,
+            "16": 4,
+            "18": 1
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.MoveCommand::.ctor(ShipNamespace.IMovable)": {
+          "Lines": {
+            "8": 4,
+            "9": 4,
+            "10": 4,
+            "11": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\ServerThread.cs": {
+      "ShipNamespace.ServerThread": {
+        "System.Void ShipNamespace.ServerThread::Stop()": {
+          "Lines": {
+            "41": 3,
+            "42": 3,
+            "43": 3
+          },
+          "Branches": []
+        },
+        "System.Action ShipNamespace.ServerThread::GetBehaviour()": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "48": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Concurrent.BlockingCollection`1<ShipNamespace.IComand> ShipNamespace.ServerThread::GetQueue()": {
+          "Lines": {
+            "50": 7,
+            "51": 7,
+            "52": 7
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.ServerThread::Wait()": {
+          "Lines": {
+            "54": 3,
+            "55": 3,
+            "56": 3
+          },
+          "Branches": []
+        },
+        "System.Threading.Thread ShipNamespace.ServerThread::GetThread()": {
+          "Lines": {
+            "59": 5,
+            "60": 5,
+            "61": 5
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.ServerThread::SetBehaviour(System.Action)": {
+          "Lines": {
+            "64": 3,
+            "65": 3,
+            "66": 3
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.ServerThread::Start()": {
+          "Lines": {
+            "69": 3,
+            "70": 3,
+            "71": 3
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.ServerThread::.ctor(System.Collections.Concurrent.BlockingCollection`1<ShipNamespace.IComand>,System.Action)": {
+          "Lines": {
+            "11": 3,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "17": 9,
+            "18": 6,
+            "19": 3,
+            "20": 6,
+            "21": 6,
+            "22": 4,
+            "23": 2,
+            "24": 2,
+            "25": 2,
+            "26": 2,
+            "27": 9,
+            "29": 6,
+            "30": 3,
+            "31": 3,
+            "32": 3,
+            "33": 12,
+            "34": 9,
+            "35": 9,
+            "36": 9,
+            "37": 6,
+            "38": 3
+          },
+          "Branches": [
+            {
+              "Line": 33,
+              "Offset": 50,
+              "EndOffset": 15,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 9
+            },
+            {
+              "Line": 33,
+              "Offset": 50,
+              "EndOffset": 52,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            }
+          ]
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\ThreadManager.cs": {
+      "ShipNamespace.ThreadManager": {
+        "System.Void ShipNamespace.ThreadManager::AddThread(System.Guid,ShipNamespace.ServerThread)": {
+          "Lines": {
+            "11": 3,
+            "13": 3,
+            "14": 3,
+            "15": 3,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 3
+          },
+          "Branches": []
+        },
+        "ShipNamespace.ServerThread ShipNamespace.ThreadManager::GetThread(System.Guid)": {
+          "Lines": {
+            "23": 15,
+            "24": 15,
+            "25": 15,
+            "26": 15,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "33": 15
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 17,
+              "EndOffset": 19,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 15
+            },
+            {
+              "Line": 24,
+              "Offset": 17,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void ShipNamespace.ThreadManager::RemoveThread(System.Guid)": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": [
+            {
+              "Line": 37,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 37,
+              "Offset": 20,
+              "EndOffset": 81,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void ShipNamespace.ThreadManager::.ctor()": {
+          "Lines": {
+            "8": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\UniversalyObject.cs": {
+      "ShipNamespace.UniversalyObject": {
+        "System.Collections.Generic.Dictionary`2<System.String,System.Object> ShipNamespace.UniversalyObject::get_properties()": {
+          "Lines": {
+            "5": 12
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.UniversalyObject::.ctor(System.Collections.Generic.Dictionary`2<System.String,System.Object>)": {
+          "Lines": {
+            "7": 4,
+            "8": 4,
+            "9": 4,
+            "10": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\C#\\HARDsoft\\SpaceBattle\\Vector2d.cs": {
+      "ShipNamespace.Vector2d": {
+        "System.Nullable`1<System.Int32> ShipNamespace.Vector2d::get_X()": {
+          "Lines": {
+            "6": 58
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Int32> ShipNamespace.Vector2d::get_Y()": {
+          "Lines": {
+            "7": 52
+          },
+          "Branches": []
+        },
+        "ShipNamespace.Vector2d ShipNamespace.Vector2d::op_Addition(ShipNamespace.Vector2d,ShipNamespace.Vector2d)": {
+          "Lines": {
+            "22": 3,
+            "23": 3,
+            "24": 2,
+            "25": 2,
+            "28": 1,
+            "29": 1
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 47,
+              "EndOffset": 49,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            },
+            {
+              "Line": 23,
+              "Offset": 15,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 31,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 47,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 71,
+              "EndOffset": 73,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 2
+            },
+            {
+              "Line": 23,
+              "Offset": 71,
+              "EndOffset": 85,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean ShipNamespace.Vector2d::Equals(System.Object)": {
+          "Lines": {
+            "32": 7,
+            "33": 7,
+            "34": 2,
+            "35": 2,
+            "38": 5,
+            "39": 5,
+            "40": 7
+          },
+          "Branches": [
+            {
+              "Line": 33,
+              "Offset": 2,
+              "EndOffset": 4,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 6
+            },
+            {
+              "Line": 33,
+              "Offset": 2,
+              "EndOffset": 23,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 33,
+              "Offset": 26,
+              "EndOffset": 28,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 33,
+              "Offset": 26,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 5
+            },
+            {
+              "Line": 39,
+              "Offset": 88,
+              "EndOffset": 90,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 3
+            },
+            {
+              "Line": 39,
+              "Offset": 88,
+              "EndOffset": 140,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Int32 ShipNamespace.Vector2d::GetHashCode()": {
+          "Lines": {
+            "43": 4,
+            "44": 4,
+            "45": 4
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.Vector2d::.ctor()": {
+          "Lines": {
+            "9": 4,
+            "10": 4,
+            "11": 4,
+            "12": 4,
+            "13": 4
+          },
+          "Branches": []
+        },
+        "System.Void ShipNamespace.Vector2d::.ctor(System.Int32,System.Int32)": {
+          "Lines": {
+            "15": 25,
+            "16": 25,
+            "17": 25,
+            "18": 25,
+            "19": 25
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
