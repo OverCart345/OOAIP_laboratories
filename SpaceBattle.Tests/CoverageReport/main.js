@@ -224,14 +224,15 @@ var assemblies = [
   {
     "name": "SpaceBattle",
     "classes": [
-      { "name": "HardStopCommand", "rp": "SpaceBattle_HardStopCommand.html", "cl": 14, "ucl": 0, "cal": 14, "tl": 25, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
+      { "name": "HardStopCommand", "rp": "SpaceBattle_HardStopCommand.html", "cl": 17, "ucl": 0, "cal": 17, "tl": 29, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
       { "name": "ShipNamespace.ActionCommand", "rp": "SpaceBattle_ActionCommand.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 16, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "ShipNamespace.CheckCollisionCommand", "rp": "SpaceBattle_CheckCollisionCommand.html", "cl": 22, "ucl": 0, "cal": 22, "tl": 38, "ct": "LineCoverage", "mc": "-", "cb": 10, "tb": 10, "lch": [], "bch": [], "hc": [] },
       { "name": "ShipNamespace.MoveCommand", "rp": "SpaceBattle_MoveCommand.html", "cl": 7, "ucl": 0, "cal": 7, "tl": 20, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
-      { "name": "ShipNamespace.ServerThread", "rp": "SpaceBattle_ServerThread.html", "cl": 43, "ucl": 0, "cal": 43, "tl": 69, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
-      { "name": "ShipNamespace.ThreadManager", "rp": "SpaceBattle_ThreadManager.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 31, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
+      { "name": "ShipNamespace.ServerThread", "rp": "SpaceBattle_ServerThread.html", "cl": 45, "ucl": 0, "cal": 45, "tl": 71, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
+      { "name": "ShipNamespace.ThreadManager", "rp": "SpaceBattle_ThreadManager.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 28, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
       { "name": "ShipNamespace.UniversalyObject", "rp": "SpaceBattle_UniversalyObject.html", "cl": 5, "ucl": 0, "cal": 5, "tl": 12, "ct": "LineCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "ShipNamespace.Vector2d", "rp": "SpaceBattle_Vector2d.html", "cl": 28, "ucl": 0, "cal": 28, "tl": 47, "ct": "LineCoverage", "mc": "-", "cb": 14, "tb": 14, "lch": [], "bch": [], "hc": [] },
+      { "name": "SoftStopCommand", "rp": "SpaceBattle_SoftStopCommand.html", "cl": 30, "ucl": 4, "cal": 34, "tl": 47, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
     ]},
 ];
 

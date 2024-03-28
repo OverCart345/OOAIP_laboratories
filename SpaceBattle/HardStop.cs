@@ -3,25 +3,30 @@
 public class HardStopCommand : IComand
 {
     private readonly ServerThread _t;
-    private readonly Action _onStoppedAction;
+    private readonly Action _afterStop;
 
-    public HardStopCommand(ServerThread t, Action onStoppedAction = null)
+    public HardStopCommand(ServerThread t, Action? afterStop = null)
     {
         _t = t;
-        _onStoppedAction = onStoppedAction;
+        if (afterStop == null)
+            _afterStop = new Action(() => { });
+        else
+            _afterStop = afterStop;
     }
 
     public void Execute()
     {
-        if (_t.GetThread() != Thread.CurrentThread)
+        if (_t.GetThread() == Thread.CurrentThread)
+        {
+            _t.SetBehaviour(() =>
+            {
+                _t.Stop();
+                _afterStop.Invoke();
+            });
+        }
+        else
         {
             throw new Exception("incorrect thread");
         }
-
-        _t.SetBehaviour(() =>
-        {
-            _t.Stop();
-            _onStoppedAction?.Invoke();
-        });
     }
 }
