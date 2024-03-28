@@ -25,7 +25,8 @@ namespace ShipNamespace
         public void GetWrongId()
         {
             var id = Guid.NewGuid();
-            _threadManager.GetThread(id);
+            var exception = Record.Exception(() => _threadManager.GetThread(id));
+            IoC.Resolve<IComand>("ExceptionHandler", exception).Execute();
             Assert.Equal("Wrong thread id", ExceptionHandler.Message);
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using Hwdtech;
 
 namespace ShipNamespace
 {
@@ -20,8 +19,7 @@ namespace ShipNamespace
             }
             else
             {
-                IoC.Resolve<IComand>("ExceptionHandler", new Exception("Wrong thread id")).Execute();
-                return null;
+                throw new Exception("Wrong thread id");
             }
         }
     }
