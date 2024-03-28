@@ -17,7 +17,7 @@ namespace ShipNamespace
             {
                 return new ActionCommand(() =>
                 {
-                    Action action = null;
+                    Action? action = null;
 
                     if (args.Length > 2)
                     {
@@ -43,7 +43,7 @@ namespace ShipNamespace
                 return new ActionCommand(() =>
                 {
                     var thread = _threadManager.GetThread((Guid)args[0]);
-                    Action action = null;
+                    Action? action = null;
 
                     if (args.Length > 1)
                     {
@@ -74,6 +74,9 @@ namespace ShipNamespace
             var mreSoft = new ManualResetEvent(false);
             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
 
+            var exMockComand = new Mock<IComand>();
+            exMockComand.Setup(m => m.Execute()).Throws<Exception>().Verifiable();
+
             IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
 
             var hs = IoC.Resolve<IComand>("Soft Stop The Thread", id, new Action(() =>
@@ -83,6 +86,7 @@ namespace ShipNamespace
             }));
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
             IoC.Resolve<IComand>("Send Command", id, hs).Execute();
+            IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { exMockComand.Object.Execute(); })).Execute();
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
             mreSoft.Set();
             mre.WaitOne();
@@ -90,71 +94,71 @@ namespace ShipNamespace
             Assert.Empty(queue);
         }
 
-         [Fact]
-         public void IncorrectHardStopId()
-         {
-             var id = Guid.NewGuid();
-             var mre = new ManualResetEvent(false);
-             var queue = new BlockingCollection<IComand>(100);
+        [Fact]
+        public void IncorrectHardStopId()
+        {
+            var id = Guid.NewGuid();
+            var mre = new ManualResetEvent(false);
+            var queue = new BlockingCollection<IComand>(100);
 
-             var id2 = Guid.NewGuid();
-             var mre2 = new ManualResetEvent(false);
-             var queue2 = new BlockingCollection<IComand>(100);
+            var id2 = Guid.NewGuid();
+            var mre2 = new ManualResetEvent(false);
+            var queue2 = new BlockingCollection<IComand>(100);
 
-             var mreSoft = new ManualResetEvent(false);
-             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
+            var mreSoft = new ManualResetEvent(false);
+            var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
 
-             IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() =>
-             { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
-             IoC.Resolve<IComand>("Create And Start Thread", id2, queue2, new Action(() =>
-             { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
+            IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() =>
+            { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
+            IoC.Resolve<IComand>("Create And Start Thread", id2, queue2, new Action(() =>
+            { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
 
-             var softStop = IoC.Resolve<IComand>("Soft Stop The Thread", id, new Action(() => { mre.Set(); mreSoft.WaitOne(); }));
-             var softStop2 = IoC.Resolve<IComand>("Soft Stop The Thread", id2, new Action(() => { mre2.Set(); mreSoft.WaitOne(); }));
+            var softStop = IoC.Resolve<IComand>("Soft Stop The Thread", id, new Action(() =>
+            {
+                mre.Set();
+                mreSoft.WaitOne();
+            }));
+            var softStop2 = IoC.Resolve<IComand>("Soft Stop The Thread", id2, new Action(() =>
+            {
+                mre2.Set();
+                mreSoft.WaitOne();
+            }));
 
-             IoC.Resolve<IComand>("Send Command", id, softStop2).Execute();
-             IoC.Resolve<IComand>("Send Command", id, softStop).Execute();
-             IoC.Resolve<IComand>("Send Command", id2, softStop).Execute();
-             IoC.Resolve<IComand>("Send Command", id2, softStop2).Execute();
+            IoC.Resolve<IComand>("Send Command", id, softStop2).Execute();
+            IoC.Resolve<IComand>("Send Command", id, softStop).Execute();
+            IoC.Resolve<IComand>("Send Command", id2, softStop).Execute();
+            IoC.Resolve<IComand>("Send Command", id2, softStop2).Execute();
 
-             mre.WaitOne();
-             mre2.WaitOne();
-             mreSoft.Set();
+            mre.WaitOne();
+            mre2.WaitOne();
+            mreSoft.Set();
 
-             _threadManager.GetThread(id).Wait();
-             _threadManager.GetThread(id2).Wait();
+            _threadManager.GetThread(id).Wait();
+            _threadManager.GetThread(id2).Wait();
 
-             Assert.Equal("incorrect thread", ExceptionHandler.Message);
-         }
+            Assert.Equal("incorrect thread", ExceptionHandler.Message);
+        }
 
-         [Fact]
-         public void AnExceptionSholdNotStopServerThread()
-         {
-             var id = Guid.NewGuid();
-             var mre = new ManualResetEvent(false);
-             var queue = new BlockingCollection<IComand>(100);
+        [Fact]
+        public void SoftStopThreadWithoutLambda()
+        {
+            var id = Guid.NewGuid();
+            var queue = new BlockingCollection<IComand>(100);
 
-             var mreSoft = new ManualResetEvent(false);
-             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
+            var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
 
-             IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
-             var exceptionCommand = new Mock<IComand>();
-             exceptionCommand.Setup(m => m.Execute()).Throws<Exception>().Verifiable();
-             var softStop = IoC.Resolve<IComand>("Soft Stop The Thread", id, new Action(() =>
-             {
-                 mre.Set();
-                 mreSoft.WaitOne();
-             }));
-             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-             IoC.Resolve<IComand>("Send Command", id, softStop).Execute();
-             IoC.Resolve<IComand>("Send Command", id, exceptionCommand.Object).Execute();
-             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-             mreSoft.Set();
-             mre.WaitOne();
-             _threadManager.GetThread(id).Wait();
-             Assert.Empty(queue);
-         }
+            var exMockComand = new Mock<IComand>();
+            exMockComand.Setup(m => m.Execute()).Throws<Exception>().Verifiable();
+
+            IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
+
+            var hs = IoC.Resolve<IComand>("Soft Stop The Thread", id);
+            IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
+            IoC.Resolve<IComand>("Send Command", id, hs).Execute();
+            IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { exMockComand.Object.Execute(); })).Execute();
+            IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
+            _threadManager.GetThread(id).Wait();
+            Assert.Empty(queue);
+        }
     }
 }

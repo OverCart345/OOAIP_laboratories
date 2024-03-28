@@ -4,12 +4,19 @@ using ShipNamespace;
 public class SoftStopCommand : IComand
 {
     private readonly ServerThread _t;
-    private readonly Action _onStoppedAction;
+    private readonly Action _afterStop;
 
-    public SoftStopCommand(ServerThread t, Action onStoppedAction)
+    public SoftStopCommand(ServerThread t, Action? afterStop = null)
     {
         _t = t;
-        _onStoppedAction = onStoppedAction;
+        if (afterStop == null)
+        {
+            _afterStop = new Action(() => { });
+        }
+        else
+        {
+            _afterStop = afterStop;
+        }
     }
 
     public void Execute()
@@ -18,18 +25,16 @@ public class SoftStopCommand : IComand
         {
             _t.SetBehaviour(() =>
             {
-                //var queue = _t.GetQueue();
+                var queue = _t.GetQueue();
 
-                if (_t.GetQueue().Count == 0)
+                if (queue.Count == 0)
                 {
                     _t.Stop();
-                    _onStoppedAction.Invoke();
-                    //throw new Exception("fff thread");
-
+                    _afterStop.Invoke();
                 }
-                else 
+                else
                 {
-                    var cmd = _t.GetQueue().Take();
+                    var cmd = queue.Take();
                     try
                     {
                         cmd.Execute();

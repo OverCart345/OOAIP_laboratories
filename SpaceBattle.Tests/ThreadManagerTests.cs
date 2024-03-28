@@ -22,7 +22,7 @@ namespace ShipNamespace
         }
 
         [Fact]
-        public void HardStopThreadd()
+        public void GetWrongId()
         {
             var id = Guid.NewGuid();
             _threadManager.GetThread(id);

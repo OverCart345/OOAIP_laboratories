@@ -9,9 +9,13 @@ public class HardStopCommand : IComand
     {
         _t = t;
         if (afterStop == null)
+        {
             _afterStop = new Action(() => { });
+        }
         else
+        {
             _afterStop = afterStop;
+        }
     }
 
     public void Execute()

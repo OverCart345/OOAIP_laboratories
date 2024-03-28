@@ -17,7 +17,7 @@ namespace ShipNamespace
             {
                 return new ActionCommand(() =>
                 {
-                    Action action = null;
+                    Action? action = null;
 
                     if (args.Length > 2)
                     {
@@ -43,7 +43,7 @@ namespace ShipNamespace
                 return new ActionCommand(() =>
                 {
                     var thread = _threadManager.GetThread((Guid)args[0]);
-                    Action action = null;
+                    Action? action = null;
 
                     if (args.Length > 1)
                     {
@@ -74,9 +74,9 @@ namespace ShipNamespace
 
             IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
 
-            var hs = IoC.Resolve<IComand>("Hard Stop The Thread", id, new Action(() => { mre.Set(); }));
+            var hardstop = IoC.Resolve<IComand>("Hard Stop The Thread", id, new Action(() => { mre.Set(); }));
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-            IoC.Resolve<IComand>("Send Command", id, hs).Execute();
+            IoC.Resolve<IComand>("Send Command", id, hardstop).Execute();
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
             mre.WaitOne();
             _threadManager.GetThread(id).Wait();
@@ -117,28 +117,21 @@ namespace ShipNamespace
             Assert.Equal("incorrect thread", ExceptionHandler.Message);
         }
 
-       /* [Fact]
-        public void AnExceptionSholdNotStopServerThread()
+        [Fact]
+        public void HardStopThreadWithoutLambda()
         {
             var id = Guid.NewGuid();
-            var mre = new ManualResetEvent(false);
+
             var queue = new BlockingCollection<IComand>(100);
             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Current"));
 
             IoC.Resolve<IComand>("Create And Start Thread", id, queue, new Action(() => { IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute(); })).Execute();
 
-            var exceptionCommand = new Mock<IComand>();
-            exceptionCommand.Setup(m => m.Execute()).Throws<Exception>().Verifiable();
-
-            var hs = IoC.Resolve<IComand>("Hard Stop The Thread", id, new Action(() => { mre.Set(); }));
-
-            IoC.Resolve<IComand>("Send Command", id, exceptionCommand.Object).Execute();
-            IoC.Resolve<IComand>("Send Command", id, hs).Execute();
+            var hardstop = IoC.Resolve<IComand>("Hard Stop The Thread", id);
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-            mre.WaitOne();
+            IoC.Resolve<IComand>("Send Command", id, hardstop).Execute();
             _threadManager.GetThread(id).Wait();
-            Assert.Single(queue);
-            
-        }*/
+            Assert.Empty(queue);
+        }
     }
 }
