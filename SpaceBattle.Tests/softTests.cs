@@ -4,11 +4,11 @@ using Hwdtech.Ioc;
 
 namespace ShipNamespace
 {
-    public class softtest
+    public class Softtest
     {
         private readonly ThreadManager _threadManager = new ThreadManager();
         private Exception ExceptionHandler = new Exception();
-        public softtest()
+        public Softtest()
         {
             new InitScopeBasedIoCImplementationCommand().Execute();
             IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();

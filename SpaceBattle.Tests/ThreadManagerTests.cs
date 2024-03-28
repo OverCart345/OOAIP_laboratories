@@ -26,7 +26,7 @@ namespace ShipNamespace
         {
             var id = Guid.NewGuid();
             _threadManager.GetThread(id);
-            Assert.Equal("thread", ExceptionHandler.Message);
+            Assert.Equal("Wrong thread id", ExceptionHandler.Message);
         }
     }
 }

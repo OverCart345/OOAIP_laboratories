@@ -20,7 +20,7 @@ namespace ShipNamespace
             }
             else
             {
-                IoC.Resolve<IComand>("ExceptionHandler", new Exception("thread")).Execute();
+                IoC.Resolve<IComand>("ExceptionHandler", new Exception("Wrong thread id")).Execute();
                 return null;
             }
         }
