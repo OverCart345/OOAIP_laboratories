@@ -1,0 +1,194 @@
+28.03.2024 18:48:05: StopCommandException
+
+28.03.2024 18:48:16: StopCommandException
+
+28.03.2024 18:59:00: StopCommandException
+
+28.03.2024 19:00:42: Test exception message
+
+28.03.2024 19:00:42: StopCommandException
+
+28.03.2024 19:03:19: StopCommandException
+
+28.03.2024 19:05:46: StopCommandException
+
+28.03.2024 19:07:44: StopCommandException
+
+28.03.2024 19:09:59: StopCommandException
+
+28.03.2024 19:13:14: StopCommandException
+
+28.03.2024 19:13:45: StopCommandException
+
+28.03.2024 19:14:52: StopCommandException
+
+28.03.2024 19:20:00: StopCommandException
+
+28.03.2024 19:20:55: StopCommandException
+
+28.03.2024 19:21:39: StopCommandException
+
+28.03.2024 19:21:50: StopCommandException
+
+28.03.2024 19:24:02: StopCommandException
+
+28.03.2024 19:25:37: StopCommandException
+
+28.03.2024 19:25:48: StopCommandException
+
+29.03.2024 15:00:54: StopCommandException
+
+29.03.2024 15:01:49: StopCommandException
+
+29.03.2024 15:02:45: StopCommandException
+
+29.03.2024 15:03:27: StopCommandException
+
+29.03.2024 15:03:53: StopCommandException
+
+29.03.2024 15:05:27: StopCommandException
+
+29.03.2024 15:06:10: StopCommandException
+
+29.03.2024 15:07:08: StopCommandException
+
+29.03.2024 15:07:20: StopCommandException
+
+29.03.2024 15:08:01: StopCommandException
+
+29.03.2024 15:08:20: StopCommandException
+
+29.03.2024 15:12:37: StopCommandException
+
+29.03.2024 15:13:22: StopCommandException
+
+29.03.2024 15:14:34: StopCommandException
+
+29.03.2024 15:18:49: StopCommandException
+
+29.03.2024 15:20:16: StopCommandException
+
+29.03.2024 15:20:43: StopCommandException
+
+29.03.2024 15:24:00: StopCommandException
+
+29.03.2024 15:24:14: StopCommandException
+
+29.03.2024 15:24:48: StopCommandException
+
+29.03.2024 15:37:19: StopCommandException
+
+29.03.2024 15:38:13: StopCommandException
+
+29.03.2024 15:38:25: StopCommandException
+
+29.03.2024 15:38:42: StopCommandException
+
+29.03.2024 15:44:03: StopCommandException
+
+29.03.2024 15:53:10: StopCommandException
+
+29.03.2024 15:53:46: StopCommandException
+
+29.03.2024 15:55:07: StopCommandException
+
+29.03.2024 15:57:06: StopCommandException
+
+29.03.2024 15:57:26: StopCommandException
+
+29.03.2024 15:57:52: StopCommandException
+
+29.03.2024 16:00:36: StopCommandException
+
+29.03.2024 16:17:24: StopCommandException
+
+29.03.2024 16:18:45: StopCommandException
+
+29.03.2024 16:19:06: StopCommandException
+
+29.03.2024 16:32:04: StopCommandException
+
+29.03.2024 16:32:23: StopCommandException
+
+29.03.2024 16:33:11: StopCommandException
+
+29.03.2024 16:33:49: StopCommandException
+
+29.03.2024 16:52:43: StopCommandException
+
+29.03.2024 16:54:59: StopCommandException
+
+29.03.2024 16:55:30: StopCommandException
+
+29.03.2024 16:56:41: StopCommandException
+
+29.03.2024 16:58:45: StopCommandException
+
+29.03.2024 16:59:27: StopCommandException
+
+29.03.2024 17:02:53: StopCommandException
+
+29.03.2024 17:03:56: StopCommandException
+
+29.03.2024 17:05:03: StopCommandException
+
+29.03.2024 17:06:05: StopCommandException
+
+29.03.2024 17:06:21: StopCommandException
+
+29.03.2024 17:06:49: StopCommandException
+
+29.03.2024 17:07:47: StopCommandException
+
+29.03.2024 17:07:54: StopCommandException
+
+29.03.2024 17:11:02: StopCommandException
+
+29.03.2024 17:11:57: StopCommandException
+
+29.03.2024 17:12:47: StopCommandException
+
+29.03.2024 17:14:00: StopCommandException
+
+29.03.2024 17:14:11: StopCommandException
+
+29.03.2024 17:14:19: StopCommandException
+
+29.03.2024 17:24:42: StopCommandException
+
+29.03.2024 17:30:58: StopCommandException
+
+29.03.2024 17:33:36: StopCommandException
+
+29.03.2024 17:36:35: StopCommandException
+
+29.03.2024 17:49:50: StopCommandException
+
+29.03.2024 17:58:13: StopCommandException
+
+29.03.2024 18:16:36: StopCommandException
+
+29.03.2024 18:17:25: StopCommandException
+
+29.03.2024 18:18:26: StopCommandException
+
+29.03.2024 18:18:49: StopCommandException
+
+29.03.2024 18:23:47: StopCommandException
+
+29.03.2024 18:26:54: StopCommandException
+
+29.03.2024 18:33:38: StopCommandException
+
+29.03.2024 18:34:50: StopCommandException
+
+29.03.2024 18:47:57: StopCommandException
+
+29.03.2024 18:49:53: StopCommandException
+
+29.03.2024 18:50:25: StopCommandException
+
+29.03.2024 18:50:50: StopCommandException
+
+29.03.2024 18:51:22: StopCommandException
+
