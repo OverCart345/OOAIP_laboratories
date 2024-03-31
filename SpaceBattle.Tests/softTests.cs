@@ -6,7 +6,6 @@ namespace ShipNamespace
 {
     public class Softtest
     {
-        private readonly ThreadManager _threadManager = new ThreadManager();
         private Exception ExceptionHandler = new Exception();
         public Softtest()
         {
@@ -25,7 +24,12 @@ namespace ShipNamespace
                     }
 
                     var serverThread = new ServerThread((BlockingCollection<IComand>)args[1], action);
-                    _threadManager.AddThread((Guid)args[0], serverThread);
+
+                    IoC.Resolve<Hwdtech.ICommand>("IoC.Register", $"Thread.{(Guid)args[0]}", (object[] args) =>
+                    {
+                        return serverThread;
+                    }).Execute();
+
                     serverThread.Start();
                 });
             }).Execute();
@@ -34,7 +38,7 @@ namespace ShipNamespace
             {
                 return new ActionCommand(() =>
                 {
-                    _threadManager.GetThread((Guid)args[0]).GetQueue().Add((IComand)args[1]);
+                    IoC.Resolve<ServerThread>($"Thread.{(Guid)args[0]}").GetQueue().Add((IComand)args[1]);
                 });
             }).Execute();
 
@@ -42,7 +46,7 @@ namespace ShipNamespace
             {
                 return new ActionCommand(() =>
                 {
-                    var thread = _threadManager.GetThread((Guid)args[0]);
+                    var thread = IoC.Resolve<ServerThread>($"Thread.{(Guid)args[0]}");
                     Action? action = null;
 
                     if (args.Length > 1)
@@ -90,7 +94,7 @@ namespace ShipNamespace
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
             mreSoft.Set();
             mre.WaitOne();
-            _threadManager.GetThread(id).Wait();
+            IoC.Resolve<ServerThread>($"Thread.{id}").Wait();
             Assert.Empty(queue);
         }
 
@@ -133,8 +137,8 @@ namespace ShipNamespace
             mre2.WaitOne();
             mreSoft.Set();
 
-            _threadManager.GetThread(id).Wait();
-            _threadManager.GetThread(id2).Wait();
+            IoC.Resolve<ServerThread>($"Thread.{id}").Wait();
+            IoC.Resolve<ServerThread>($"Thread.{id2}").Wait();
 
             Assert.Equal("incorrect thread", ExceptionHandler.Message);
         }
@@ -157,7 +161,7 @@ namespace ShipNamespace
             IoC.Resolve<IComand>("Send Command", id, hs).Execute();
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { exMockComand.Object.Execute(); })).Execute();
             IoC.Resolve<IComand>("Send Command", id, new ActionCommand(() => { })).Execute();
-            _threadManager.GetThread(id).Wait();
+            IoC.Resolve<ServerThread>($"Thread.{id}").Wait();
             Assert.Empty(queue);
         }
     }
