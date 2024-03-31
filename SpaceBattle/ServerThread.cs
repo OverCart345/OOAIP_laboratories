@@ -10,13 +10,9 @@ namespace ShipNamespace
         private readonly Thread _thread;
         private bool _stop = false;
 
-        public ServerThread(BlockingCollection<IComand> queue, Action? afterThreadStart = null)
+        public ServerThread(BlockingCollection<IComand> queue, Action afterThreadStart)
         {
             _queue = queue;
-            if (afterThreadStart == null)
-            {
-                afterThreadStart = new Action(() => { });
-            }
 
             _behaviour = () =>
             {
@@ -33,7 +29,6 @@ namespace ShipNamespace
 
             _thread = new Thread(() =>
             {
-
                 afterThreadStart();
 
                 while (!_stop)

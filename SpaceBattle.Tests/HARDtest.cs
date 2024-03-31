@@ -16,14 +16,7 @@ namespace ShipNamespace
             {
                 return new ActionCommand(() =>
                 {
-                    Action? action = null;
-
-                    if (args.Length > 2)
-                    {
-                        action = (Action)args[2];
-                    }
-
-                    var serverThread = new ServerThread((BlockingCollection<IComand>)args[1], action);
+                    var serverThread = new ServerThread((BlockingCollection<IComand>)args[1], (Action)args[2]);
 
                     IoC.Resolve<Hwdtech.ICommand>("IoC.Register", $"Thread.{(Guid)args[0]}", (object[] args) =>
                     {
@@ -33,10 +26,6 @@ namespace ShipNamespace
                     serverThread.Start();
                 });
             }).Execute();
-
-
-
-
 
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Send Command", (object[] args) =>
             {
