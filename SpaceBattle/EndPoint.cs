@@ -21,7 +21,9 @@ namespace ShipNamespace
             webApplication.MapPost("/message", (Message message) =>
             {
                 if (setCurrentScope != null)
+                {
                     setCurrentScope();
+                }
 
                 try
                 {
@@ -41,5 +43,5 @@ namespace ShipNamespace
             });
             webApplication.RunAsync("http://localhost:5050");
         }
-    } 
+    }
 }

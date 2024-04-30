@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Net.Http.Json;
 using Hwdtech;
 using Hwdtech.Ioc;
@@ -133,7 +132,6 @@ namespace ShipNamespace
 
             IoC.Resolve<IComand>("Create And Start Thread", id, queue, scopeAction).Execute();
 
-
             // Настраиваем HTTP-клиента для взаимодействия с локальным сервером.
             var clientHandler = new HttpClientHandler();
             var client = new HttpClient(clientHandler);
@@ -148,7 +146,6 @@ namespace ShipNamespace
                 { "game item id", 548}
             };
             var messageCommand = new Message(messageData);
-            
 
             // Запускаем сервер, чтобы обработать запрос.
             Endpoint.InitScope(scopeAction);
