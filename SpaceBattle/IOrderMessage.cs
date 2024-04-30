@@ -1,4 +1,4 @@
-namespace ShipNamespace;
+﻿namespace ShipNamespace;
 public interface IOrderMessage
 {
     public string _gameId { get; set; }

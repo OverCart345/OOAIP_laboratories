@@ -1,8 +1,8 @@
-namespace ShipNamespace;
+﻿namespace ShipNamespace;
 using Hwdtech;
 
 public class QueuePush : IStrategy
-{  
+{
     public object Invoke(params object[] args)
     {
         var id = (string)args[0];

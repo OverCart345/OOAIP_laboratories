@@ -1,10 +1,10 @@
-using Hwdtech;
+﻿using Hwdtech;
 
 namespace ShipNamespace;
 
 public class InterpretationCommand : IComand
 {
-    IOrderMessage _msg;
+    private readonly IOrderMessage _msg;
 
     public InterpretationCommand(IOrderMessage msg)
     {

@@ -1,7 +1,7 @@
-namespace ShipNamespace;
+﻿namespace ShipNamespace;
 using Hwdtech;
 
-public class CreateCommand : IStrategy  
+public class CreateCommand : IStrategy
 {
     public object Invoke(params object[] args)
     {
