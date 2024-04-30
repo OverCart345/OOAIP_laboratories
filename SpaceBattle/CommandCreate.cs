@@ -5,7 +5,7 @@ public class CreateCommand : IStrategy
 {
     public object Invoke(params object[] args)
     {
-        IOrderMessage message = (IOrderMessage)args[0];
+        var message = (IOrderMessage)args[0];
 
         var obj = IoC.Resolve<UniversalyObject>("GetObject", message._objectId);
 
