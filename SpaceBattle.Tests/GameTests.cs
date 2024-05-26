@@ -89,15 +89,15 @@ namespace SpaceBattle.Tests
             IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute();
 
             var mockStrategy = new Mock<IStrategy>();
-            mockStrategy.Setup(x => x.Invoke()).Returns(new TimeSpan(0, 0, 2));  // Set a time quantum of 2 seconds
+            mockStrategy.Setup(x => x.Invoke()).Returns(new TimeSpan(0, 0, 2));
 
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Game.Get.Time.Quantum", (object[] args) => mockStrategy.Object.Invoke(args)).Execute();
 
             var mockCommand = new Mock<IComand>();
-            mockCommand.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(500));  // Command that takes 0.5 seconds
+            mockCommand.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(500));
 
             var mockCommand2 = new Mock<IComand>();
-            mockCommand2.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(500));  // Command that takes 0.5 seconds
+            mockCommand2.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(500));
 
             var queue = new Queue<IComand>();
             queue.Enqueue(mockCommand.Object);
@@ -106,7 +106,7 @@ namespace SpaceBattle.Tests
             var gameCommand = new GameCommand(scope, queue);
             gameCommand.Execute();
 
-            Assert.True(queue.Count == 0);  // Both commands should have executed within the 2-second quantum
+            Assert.True(queue.Count == 0);
         }
 
         [Fact]
@@ -116,15 +116,15 @@ namespace SpaceBattle.Tests
             IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", scope).Execute();
 
             var mockStrategy = new Mock<IStrategy>();
-            mockStrategy.Setup(x => x.Invoke()).Returns(new TimeSpan(0, 0, 0));  // Set a time quantum of 1 second
+            mockStrategy.Setup(x => x.Invoke()).Returns(new TimeSpan(0, 0, 0));
 
             IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Game.Get.Time.Quantum", (object[] args) => mockStrategy.Object.Invoke(args)).Execute();
 
             var mockCommand = new Mock<IComand>();
-            mockCommand.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(500));  // Command that takes 0.5 seconds
+            mockCommand.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(500));
 
             var mockCommand2 = new Mock<IComand>();
-            mockCommand2.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(1500));  // Command that takes 1.5 seconds
+            mockCommand2.Setup(x => x.Execute()).Callback(() => System.Threading.Thread.Sleep(1500));
 
             var queue = new Queue<IComand>();
             queue.Enqueue(mockCommand.Object);
@@ -133,7 +133,7 @@ namespace SpaceBattle.Tests
             var gameCommand = new GameCommand(scope, queue);
             gameCommand.Execute();
 
-            Assert.True(queue.Count == 2);  // Second command should not have executed as it exceeds the 1-second quantum
+            Assert.True(queue.Count == 2);
         }
     }
 }
