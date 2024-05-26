@@ -1,6 +1,4 @@
-﻿using Hwdtech;
-
-namespace ShipNamespace
+﻿namespace ShipNamespace
 {
     public interface IHandler
     {

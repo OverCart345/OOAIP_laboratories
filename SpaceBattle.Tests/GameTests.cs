@@ -14,7 +14,7 @@ namespace SpaceBattle.Tests
             ).Execute();
         }
 
-        [Fact] 
+        [Fact]
         public void GameCommandComplete()
         {
             var scope = IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"));
