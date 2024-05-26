@@ -130,8 +130,8 @@ namespace SpaceBattle.Tests
             queue.Enqueue(mockCommand.Object);
             queue.Enqueue(mockCommand2.Object);
 
-            var gameCmd = new GameCommand(scope, queue);
-            gameCmd.Execute();
+            var gameCommand = new GameCommand(scope, queue);
+            gameCommand.Execute();
 
             Assert.True(queue.Count == 2);  // Second command should not have executed as it exceeds the 1-second quantum
         }
