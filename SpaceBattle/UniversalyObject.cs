@@ -1,12 +1,8 @@
 ﻿namespace ShipNamespace
 {
-    public class UniversalyObject
+    public interface UniversalyObject
     {
-        public Dictionary<string, object> properties { get; }
-
-        public UniversalyObject(Dictionary<string, object> properties)
-        {
-            this.properties = properties;
-        }
+        public object GetProperty(string key);
+        public void SetProperty(string key, object value);
     }
 }
