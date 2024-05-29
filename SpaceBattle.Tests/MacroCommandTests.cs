@@ -29,8 +29,8 @@ namespace SpaceshipTests.MacroCMD
             mockCommand.Setup(x => x.Execute()).Verifiable();
 
             operationName = "Movement";
-            mockUObject = new Mock<UniversalyObject>(new Dictionary<string, object>());
-            mockUObject.Object.properties.Add("Position", new Vector2d(0, 0));
+            mockUObject = new Mock<UniversalyObject>();
+            mockUObject.Object.SetProperty("Position", new Vector2d(0, 0));
         }
 
         [When(@"Регистрация комманд в IoC для создания макрокомманды")]
@@ -41,7 +41,7 @@ namespace SpaceshipTests.MacroCMD
             Assert.NotNull(operationName);
             IoC.Resolve<ICommand>("IoC.Register", "Config." + operationName, (object[] args) => new List<string> { "Game.Command.Move" }).Execute();
             IoC.Resolve<ICommand>("IoC.Register", "Game.Command.Macro.Create",
-            (object[] args) => new MacroStrategy().Strat(args[0], args[1])).Execute();
+            (object[] args) => new MacroStrategy().Invoke(args[0], args[1])).Execute();
             IoC.Resolve<ICommand>("IoC.Register", "Game.Command.Move", (object[] args) => mockCommand.Object).Execute();
             IoC.Resolve<ICommand>("IoC.Register", "Game.Command.Macro", (object[] args) => mockCommand.Object).Execute();
             IoC.Resolve<ShipNamespace.IComand>("Game.Command.Macro.Create", operationName, mockUObject.Object).Execute();

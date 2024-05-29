@@ -2,7 +2,7 @@
 namespace ShipNamespace;
 public class MacroStrategy : IStrategy
 {
-    public object Strat(params object[] args)
+    public object Invoke(params object[] args)
     {
         var operationName = (string)args[0];
         var uObject = (UniversalyObject)args[1];
