@@ -3,7 +3,7 @@
     using ShipNamespace;
     using Xunit;
 
-    public class HashTests
+    public class HashTestsVector
     {
         [Fact]
         public void GetHashCode_SameVectors_ShouldReturnSameHashCode()

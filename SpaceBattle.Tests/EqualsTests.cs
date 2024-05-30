@@ -2,7 +2,7 @@
 namespace SpaceBattle.Tests
 
 {
-    public class EqualsTests
+    public class EqualsTestsVector
     {
         [Fact]
         public void SameVector_ShouldReturnTrue()

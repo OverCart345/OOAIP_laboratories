@@ -4,7 +4,7 @@ using TechTalk.SpecFlow;
 namespace spacebattletests.StepDefinitions
 {
     [Binding]
-    public class StepDefinitions
+    public class StepDefinitionsVector
     {
         private Exception exception = new Exception();
         private readonly Mock<IMovable> movableMock = new Mock<IMovable>();
@@ -60,7 +60,7 @@ namespace spacebattletests.StepDefinitions
             movableMock.VerifySet(m => m.Position = new Vector2d(p0, p1), Times.Once);
         }
 
-        [Then(@"возникает ошибка Exception")]
+        [Then(@"возникает ошибка")]
         public void ThenThrowsException()
         {
             Assert.IsType<Exception>(exception);

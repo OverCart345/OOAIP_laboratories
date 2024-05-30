@@ -6,10 +6,10 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   [workflow_dispatch, pull_request, push]
-
+    
   # Allows you to run this workflow manually from the Actions tab
- 
 
+  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -35,6 +35,6 @@ jobs:
 
       - name: Verify format
         run: cd SpaceBattle && dotnet format --verify-no-changes && cd ..
-        
+
       - name: Unittest and coverage
         run: dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults /p:CoverletOutputFormat=cobertura
