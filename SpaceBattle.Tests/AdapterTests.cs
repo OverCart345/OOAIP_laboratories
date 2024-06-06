@@ -1,6 +1,6 @@
-using ShipNamespace;
-using Hwdtech;
+﻿using Hwdtech;
 using Hwdtech.Ioc;
+using ShipNamespace;
 using Xunit.Abstractions;
 namespace SpaceBattle.Tests;
 public class TestAdapterBulider

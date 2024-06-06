@@ -1,10 +1,10 @@
-using Scriban;
+﻿using Scriban;
 namespace ShipNamespace;
 
 public class Adapter : IBuilder
 {
-    Type _typeOld;
-    Type _typeNew;
+    private readonly Type _typeOld;
+    private readonly Type _typeNew;
 
     public Adapter(Type typeOld, Type typeNew)
     {
